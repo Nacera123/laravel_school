@@ -19,8 +19,6 @@ class CreateFormationsTable extends Migration
             $table->string('intitule');
             $table->string('nbre_d_heure');
             $table->string('image');
-            // $table->bigInteger('id_utilisateur')->unsigned()->index();
-            // $table->foreign ('id_utilisateur')->references('id_utilisateur')->on('utilisateurs');
             $table->timestamps();
         });
 
@@ -43,7 +41,6 @@ class CreateFormationsTable extends Migration
                 'intitule'=>'HTML5 – CSS3 - BOOTSTRAP',
                 'nbre_d_heure'=>'70 heures',
                 'image'=>''
-                // 'id_utilisateur'=>1
             ]
         );
 
@@ -59,7 +56,6 @@ class CreateFormationsTable extends Migration
                 'intitule'=>'javascript & JQuery',
                 'nbre_d_heure'=>'150 heures',
                 'image'=>''
-                // 'id_utilisateur'=>2
             ]
         );
 
@@ -76,7 +72,6 @@ class CreateFormationsTable extends Migration
                 'intitule'=>'Merise & SQL',
                 'nbre_d_heure'=>'150 heures',
                 'image'=>''
-                // 'id_utilisateur'=>1
             ]
         );
 
@@ -96,7 +91,6 @@ class CreateFormationsTable extends Migration
                 'intitule'=>'PHP',
                 'nbre_d_heure'=>'150 heures',
                 'image'=>''
-                // 'id_utilisateur'=>1
             ]
         );
 
@@ -114,7 +108,6 @@ class CreateFormationsTable extends Migration
                 'intitule'=>'NodeJS',
                 'nbre_d_heure'=>'80 heures',
                 'image'=>''
-                // 'id_utilisateur'=>2
             ]
         );
 
@@ -130,7 +123,6 @@ class CreateFormationsTable extends Migration
                 'intitule'=>'ReactJS',
                 'nbre_d_heure'=>'120 heures',
                 'image'=>''
-                // 'id_utilisateur'=>1
             ]
         );
 
@@ -149,7 +141,6 @@ class CreateFormationsTable extends Migration
                 'intitule'=>'Ionic',
                 'nbre_d_heure'=>'100 heures',
                 'image'=>''
-                // 'id_utilisateur'=>2
             ]
         );
 

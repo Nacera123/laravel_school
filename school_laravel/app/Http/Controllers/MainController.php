@@ -32,7 +32,7 @@ class MainController extends Controller
     }
 
 
-    public function delete_formationAction($id){
+    public function delete_formation($id){
 
         Formation::where('id_formation', $id)->delete();
 

@@ -9,9 +9,9 @@ use App\Models\Formation;
 
 class FormationController extends Controller
 {
-    public function detail_formation($id_formaion){
+    public function detail_formation($id){
 
-        $formation = Formation::find($id_formation);
+        $formation = Formation::find($id);
 
         return view('formation', compact('formation'));
 

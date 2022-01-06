@@ -25,7 +25,7 @@ route::get('formation','App\Http\Controllers\FormationController@formationall')-
 route::get('users','App\Http\Controllers\MainController@formationcrud')->name('users');
 
 // ici on active le bouton supprimer  la formation avec la methode 'POST' toujours a l'interieur de la page users.php
-route::post('/delete_formation/{id}','App\Http\Controllers\MainController@delete_formationAction')->name('delete_formation');
+route::post('/delete_formation/{id}','App\Http\Controllers\MainController@delete_formation')->name('delete_formation');
 
 // ici on active le bouton supprimer le compte avec la methode 'POST' toujours a l'interieur de la page users.php
 route::post('/delete_compte/{id}','App\Http\Controllers\MainController@delete_compte')->name('delete_compte');

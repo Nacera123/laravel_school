@@ -36,81 +36,6 @@
 
     <center><h1>bienvenue dans ton espace admin</h1></center>
 
-    <h2>TABLE COMPTE</h2><br>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">ID COMPTE</th>
-                <th scope="col">TYPE</th>
-                <th scope="col">LOGIN</th>
-                <th scope="col">PASSWORD</th>
-                <th scope="col">SECRET QUESTION</th>
-                <th scope="col">ANSWER</th>
-                <th scope="col">CREATED AT</th>
-                <th scope="col">UPDATED AT</th>
-                
-                <th scope="col">Modifer</th>
-                <th scope="col">Supprimer</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($compteList as $compte)
-
-            <tr>
-                <td>{{$compte->id_compte}}</td>
-                <td>{{$compte->type}}</td>
-                <td>{{$compte->login}}</td>
-                <td>{{$compte->password}}</td>
-                <td>{{$compte->secret_question}}</td>
-                <td>{{$compte->answer}}</td>
-                <td>{{$compte->created_at}}</td>
-                <td>{{$compte->updated_at}}</td>
-
-                <td>
-                    <form action="" method="GET">
-                        <button class="btn btn-info">Modifier</button>
-                    </form>
-                </td>
-                <td>
-                    
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{$compte->id_compte}}">Supprimer</button>
-                            
-
-                    <div class="modal fade" id="{{$compte->id_compte}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Suppression de {{$compte->login}}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Confirmez-vous supprimer {{$compte->login}} ?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-
-                                    
-                                    <form action="{{ route('delete_compte', ['id' => $compte->id_compte]) }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger">supprimer</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                            
-    
-
-                </td>
-            </tr>
-
-            @endforeach
-        </tbody>
-    </table><br><br>
-
     <h2>TABLE UTILISATEURS</h2><br>
     <table class="table table-striped">
         <thead>
@@ -149,6 +74,8 @@
                     </form>
                 </td>
                 <td>
+
+                
                     
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{$utilisateur->id_utilisateur}}">Supprimer</button>
                             
@@ -169,7 +96,7 @@
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 
                                     
-                                    <form action="{{ route('delete_utilisateur', ['id' => $utilisateur->id_utilisateur]) }}" method="POST">
+                                    <form action="{{route('delete_utilisateur', ['id' => $utilisateur->id_utilisateur])}}" method="POST">
                                         @csrf
                                         <button type="submit" class="btn btn-danger">supprimer</button>
                                     </form>
@@ -185,6 +112,83 @@
         </tbody>
     </table><br><br>
 
+    <h2>TABLE COMPTE</h2><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID COMPTE</th>
+                <th scope="col">TYPE</th>
+                <th scope="col">LOGIN</th>
+                <th scope="col">PASSWORD</th>
+                <th scope="col">SECRET QUESTION</th>
+                <th scope="col">ANSWER</th>
+                <th scope="col">CREATED AT</th>
+                <th scope="col">UPDATED AT</th>
+                
+                <th scope="col">Modifer</th>
+                <th scope="col">Supprimer</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($compteList as $compte)
+
+            <tr>
+                <td>{{$compte->id_compte}}</td>
+                <td>{{$compte->type}}</td>
+                <td>{{$compte->login}}</td>
+                <td>{{$compte->password}}</td>
+                <td>{{$compte->secret_question}}</td>
+                <td>{{$compte->answer}}</td>
+                <td>{{$compte->created_at}}</td>
+                <td>{{$compte->updated_at}}</td>
+
+                <td>
+                    <form action="" method="GET">
+                        <button class="btn btn-info">Modifier</button>
+                    </form>
+                </td>
+                <td>
+                    
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{$compte->login}}">Supprimer</button>
+                            
+
+                    <div class="modal fade" id="{{$compte->login}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Suppression de {{$compte->login}}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-toto">
+                                    Confirmez-vous supprimer {{$compte->login}} ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+
+                                    
+                                    <form action="{{ route('delete_compte', ['id' => $compte->id_compte]) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">supprimer</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                            
+    
+
+                </td>
+            </tr>
+
+            @endforeach
+        </tbody>
+    </table><br><br>
+
+
+
 
 
     <h2>TABLE FORMATION</h2><br>
@@ -196,7 +200,6 @@
                 <th scope="col">DESCRIPTION</th>
                 <th scope="col">HEURES</th>
                 <th scope="col">IMAGE</th>
-                <!-- <th scope="col">ID UTILISATEUR</th> -->
                 <th scope="col">CREATED AT</th>
                 <th scope="col">UPDATED AT</th>
                 
@@ -213,7 +216,6 @@
                 <td>{{$form->description}}</td>
                 <td>{{$form->nbre_d_heure}}</td>
                 <td>{{$form->image}}</td>
-                <!-- <td>{{$form->id_utilisateur}}</td> -->
                 <td>{{$form->created_at}}</td>
                 <td>{{$form->updated_at}}</td>
 
@@ -224,26 +226,26 @@
                 </td>
                 <td>
                     
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{$form->id_formation}}">Supprimer</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#{{$form->intitule}}">Supprimer</button>
                         
 
-                    <div class="modal fade" id="{{$form->id_formation}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="{{$form->intitule}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <div class="modal-header">
+                                <div class="modal-titi">
                                     <h5 class="modal-title" id="exampleModalLabel">Suppression de {{$form->intitule}}</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-titi">
                                     Confirmez-vous supprimer {{$form->intitule}} ?
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 
                                     
-                                    <form action="{{ route('delete_formation', ['id' => $form->id_formation]) }}" method="POST">
+                                    <form action="{{route('delete_formation', ['id' => $form->id_formation])}}" method="POST">
                                         @csrf
                                         <button type="submit" class="btn btn-danger">supprimer</button>
                                     </form>
